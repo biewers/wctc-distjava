@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration debug="false">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- child level logging for application -->
+    <logger name="edu.wctc.web.demo.bookwebapp" level="DEBUG" />
+    <logger name="org.springframework" level="DEBUG" />
+
+    <!-- root level logging (children can override) -->
+    <root level="INFO">
+        <!-- appender-ref ref="FILE" / -->
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
