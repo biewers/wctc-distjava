@@ -1,3 +1,5 @@
+.DS_Store
+
 # Compiled class file
 *.class
 
@@ -24,3 +26,7 @@ hs_err_pid*
 /week3/projects/JavaServerPages/build/
 /week3/projects/NamesApp/nbproject/private/
 /week3/projects/NamesApp/build/
+/week4/projects/TestGradleWeb/.nb-gradle/
+/week4/projects/TestGradleWeb/build/
+/week4/projects/TestMavenWeb/target/
+/week4/Jim/Week4/bookWebApp/target/

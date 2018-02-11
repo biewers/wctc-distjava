@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context path="/bookWebApp">
-  <!-- configure connection pool -->
-  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxIdle="4" maxTotal="8" name="jdbc/book" password="admin" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/book" username="root"/>
-</Context>
