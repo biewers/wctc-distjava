@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * This is my servlet.
+ * @author andrewbiewer
+ */
 public class NameController extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
