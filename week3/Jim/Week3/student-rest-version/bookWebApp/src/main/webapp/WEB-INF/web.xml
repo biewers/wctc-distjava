@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!--
+        This is an example of an application-wide init param. It's called a 
+        ServletContext init param. You can have as many init params as you want 
+        but there is only one servlet context; remember, all of these params 
+        are global to your app and can be accessed from any JSP page or
+        servlet, which may not be what you want. If not, see below.
+    -->
+    <context-param>
+        <param-name>webmasterEmail</param-name>
+        <param-value>jlombardo@wctc.edu</param-value>
+    </context-param>
+
+    <!-- Begin Spring-specific configuration -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+        
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+    <!-- END Spring configuration -->
+    
+    <!-- begin additional Spring Security config -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- end Spring security config -->
+    
+    <servlet>
+        <!-- first alias, private to config -->
+        <servlet-name>AuthorController</servlet-name>
+        <servlet-class>edu.wctc.web.demo.bookwebapp.controller.AuthorController</servlet-class>
+        <!-- must be last item in servlet config -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>BookController</servlet-name>
+        <servlet-class>edu.wctc.web.demo.bookwebapp.controller.BookController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <!-- reference private config alias -->
+        <servlet-name>AuthorController</servlet-name>
+        <!-- second alias is the one you use in your links -->
+        <url-pattern>/AuthorController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookController</servlet-name>
+        <url-pattern>/BookController</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Add for Spring REST -->
+    <servlet>
+        <servlet-name>exporter</servlet-name>
+        <servlet-class>org.springframework.data.rest.webmvc.RepositoryRestDispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>exporter</servlet-name>
+        <url-pattern>/api/v1/*</url-pattern>
+    </servlet-mapping>
+    <!-- end spring rest -->
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

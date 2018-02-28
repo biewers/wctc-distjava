@@ -1,0 +1,7 @@
+
+// To send any data to the VIEW you must use this to forward the
+// request object, which contains the data, to the destination. The
+// destination can be a JSP or another Controller, but cannot be an html page.
+RequestDispatcher view =
+        request.getRequestDispatcher(destination);
+view.forward(request, response);
