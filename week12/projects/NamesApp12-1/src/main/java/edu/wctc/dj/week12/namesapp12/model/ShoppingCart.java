@@ -1,4 +1,4 @@
-package edu.wctc.dj.week9.namesapp9.model;
+package edu.wctc.dj.week12.namesapp12.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,17 +1,33 @@
-package edu.wctc.dj.week9.namesapp9.model;
+package edu.wctc.dj.week12.namesapp12.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
+
+	@Id
+	@GeneratedValue
+	private String id;
 
 	private String street;
 	private String city;
 	private String state;
 	private String zip;
 
+	public Address() {
+	}
+
 	public Address(String street, String city, String state, String zip) {
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 	public String getStreet() {
@@ -45,7 +61,5 @@ public class Address {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-
-	
 	
 }

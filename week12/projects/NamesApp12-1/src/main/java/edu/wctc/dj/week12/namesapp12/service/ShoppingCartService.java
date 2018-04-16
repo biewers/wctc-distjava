@@ -1,9 +1,13 @@
-package edu.wctc.dj.week9.namesapp9.model;
+package edu.wctc.dj.week12.namesapp12.service;
 
+import edu.wctc.dj.week12.namesapp12.model.ShoppingCart;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
+@Transactional
 public class ShoppingCartService {
 
 	private static final Map<String, ShoppingCart> contents = new HashMap<>();
