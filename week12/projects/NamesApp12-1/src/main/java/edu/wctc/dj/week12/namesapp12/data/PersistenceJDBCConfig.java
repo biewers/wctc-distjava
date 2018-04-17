@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "edu.wctc.dj.week12.namesapp12")
-public class PersistenceJNDIConfig {
+public class PersistenceJDBCConfig {
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory()
