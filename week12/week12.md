@@ -1,4 +1,3 @@
-
 Agenda
 - Spring Boot
 	- JSF
